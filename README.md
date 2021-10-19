@@ -16,6 +16,7 @@ demonstration: [Museum of Modern Art Collection](https://www.kaggle.com/momanyc/
 * `joins.sql`: Example of joins using Apache Superset/Presto
 * `moma_public_artists.txt.zip`: ZIP-compressed, pipe-delimited raw artists data from Kaggle
 * `moma_public_artworks.txt.zip`: ZIP-compressed, pipe-delimited raw artwork data from Kaggle
+* `superset_charts.sql`: SQL statements used to create Superset charts for dashboard
 
 ## Setup
 
