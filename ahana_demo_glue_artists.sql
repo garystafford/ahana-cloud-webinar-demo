@@ -43,7 +43,7 @@ SELECT cast(artist_id AS INTEGER) AS artist_id,
     try_cast(death_year AS INTEGER) AS death_year,
     CASE
        WHEN nationality IN (NULL, '', 'Nationality unknown',
-                            'nationality unknown', 'Nationality Unknown')
+                            'nationality unknown')
            THEN 'Nationality Unknown'
        ELSE nationality
     END AS nationality
@@ -64,7 +64,7 @@ SELECT cast(artist_id AS INTEGER) AS artist_id,
     try_cast(death_year AS INTEGER) AS death_year,
     CASE
        WHEN nationality IN (NULL, '', 'Nationality unknown',
-                            'nationality unknown', 'Nationality Unknown')
+                            'nationality unknown')
            THEN 'Nationality Unknown'
        ELSE nationality
     END AS nationality
