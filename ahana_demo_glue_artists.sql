@@ -72,7 +72,7 @@ FROM artists_raw_glue
 WHERE name != ''
 OFFSET 7500;
 
-
+-- show parquet-format file partitions in S3
 SHOW PARTITIONS artists_refined_glue;
 
 -- gold / analyze refined data (aws glue)

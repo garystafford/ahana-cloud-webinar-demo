@@ -73,7 +73,6 @@ AS classification
 FROM artwork_raw_glue
 WHERE title != '';
 
-
 -- analyze refined data (aws glue)
 SELECT classification, count(*) AS pieces
 FROM artwork_refined_glue
