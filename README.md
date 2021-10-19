@@ -24,3 +24,8 @@ demonstration: [Museum of Modern Art Collection](https://www.kaggle.com/momanyc/
 2. Create an AWS Glue Data Catalog, named `moma`;
 3. Create a Data Source in the Ahana SaaS Console for the AWS Glue Data Catalog, `moma`, and attach to your Ahana Cloud
    cluster;
+
+---
+
+<i>The contents of this repository represent my viewpoints and not of my past or current employers, including Amazon Web
+Services (AWS). All third-party libraries, modules, plugins, and SDKs are the property of their respective owners.</i>
