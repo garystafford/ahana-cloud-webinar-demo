@@ -81,10 +81,10 @@ SHOW PARTITIONS artists_refined_glue;
 
 -- gold / analyze refined data (aws glue)
 CREATE TABLE artists_totals
-    WITH (
-        format = 'TEXTFILE',
-        external_location = 's3://<your_s3_bucket_name_here>/artists_totals/',
-        field_delimiter = ',')
+WITH (
+    format = 'TEXTFILE',
+    external_location = 's3://<your_s3_bucket_name_here>/artists_totals/',
+    field_delimiter = ',')
 AS
 SELECT nationality, count(*) AS artists
 FROM artists_refined_glue

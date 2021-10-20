@@ -17,9 +17,9 @@ WITH (FORMAT = 'CSV',
 
 -- silver / create refined partitioned parquet data
 CREATE TABLE IF NOT EXISTS artists_refined_hive
-    WITH (
-        FORMAT = 'PARQUET',
-        PARTITIONED_BY = ARRAY ['nationality'])
+WITH (
+    FORMAT = 'PARQUET',
+    PARTITIONED_BY = ARRAY ['nationality'])
 AS
 SELECT cast(artist_id AS INTEGER) AS artist_id,
     name,
