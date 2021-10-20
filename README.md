@@ -1,10 +1,10 @@
 # 0 to Presto in 30 minutes with AWS & Ahana Cloud
 
-Source SQL code for the Ahana.io webinar: [0 to Presto in 30 minutes with AWS & Ahana Cloud](https://ahana.io/events/webinars/0-to-presto-oct21/)
+Source SQL and data for the Ahana.io webinar: [0 to Presto in 30 minutes with AWS & Ahana Cloud](https://ahana.io/events/webinars/0-to-presto-oct21/)
 
 ## Datasource
 
-The original datasource use in the demonstration: [Museum of Modern Art Collection](https://www.kaggle.com/momanyc/museum-collection).
+The original Kaggle datasource use in the demonstration: [Museum of Modern Art Collection](https://www.kaggle.com/momanyc/museum-collection).
 
 ## SQL Statements
 
