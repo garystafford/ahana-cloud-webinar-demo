@@ -11,7 +11,7 @@ demonstration: [Museum of Modern Art Collection](https://www.kaggle.com/momanyc/
 ## SQL Statements
 
 * [`ahana_demo_glue_artists.sql`](ahana_demo_glue_artists.sql): Artists SQL statements using AWS Glue and Amazon Athena
-* [`ahana_demo_glue_artwork.sql`](ahana_demo_glue_artwork.sql): Artwork SQL statements using AWS Glue and Amazon Athena
+* [`ahana_demo_glue_artworks.sql`](ahana_demo_glue_artworks.sql): Artworks SQL statements using AWS Glue and Amazon Athena
 * [`ahana_demo_hive.sql`](ahana_demo_hive.sql): Artists SQL statements using Apache Superset/Presto and Apache Hive
 * [`joins.sql`](joins.sql): Example of joins using Apache Superset/Presto
 * [`superset_charts.sql`](superset_charts.sql): SQL statements used to create Superset charts for dashboard
