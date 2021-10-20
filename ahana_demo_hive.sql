@@ -1,7 +1,7 @@
 -- use superset/presto and apache hive to create tables
 
---bronze / existing raw csv data
-CREATE TABLE artists_raw_hive
+-- bronze / existing raw csv data
+CREATE TABLE IF NOT artists_raw_hive
 (
     artist_id   VARCHAR,
     name        VARCHAR,
