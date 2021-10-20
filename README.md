@@ -17,8 +17,8 @@ demonstration: [Museum of Modern Art Collection](https://www.kaggle.com/momanyc/
 * [`superset_charts.sql`](superset_charts.sql): SQL statements used to create Superset charts for dashboard
    
 ## Data
-* `moma_public_artists.txt.gz`: GZIP-compressed, pipe-delimited raw artists data from Kaggle
-* `moma_public_artworks.txt.gz`: GZIP-compressed, pipe-delimited raw artwork data from Kaggle
+* `moma_public_artists.txt.gz`: GZIP-compressed, pipe-delimitedc raw artists data from Kaggle
+* `moma_public_artworks.txt.gz`: GZIP-compressed, pipe-delimited, copies of raw artworks data from Kaggle
 
 ## Setup
 
