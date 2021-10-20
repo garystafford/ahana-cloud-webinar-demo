@@ -1,5 +1,8 @@
 -- use aws glue and amazon athena to create tables
 
+-- create aws glue database
+CREATE SCHEMA IF NOT EXISTS moma;
+
 -- bronze / existing raw csv data
 CREATE EXTERNAL TABLE IF NOT EXISTS `artists_raw_glue`(
     `artist_id` bigint,
@@ -22,11 +25,14 @@ LOCATION
   's3://<your_s3_bucket_name_here>/artists_raw'
 TBLPROPERTIES (
   'classification'='csv',
-  'compressionType'='none',
+  'compressionType'='gzip',
   'skip.header.line.count'='1')
 
+-- preview bronze data
+SELECT * FROM "moma"."artists_raw_glue" LIMIT 10;
+
 -- silver / create refined partitioned parquet data
-CREATE EXTERNAL TABLE IF NOT EXISTS artists_refined_glue
+CREATE TABLE IF NOT EXISTS artists_refined_glue
 WITH (
     format = 'PARQUET',
     partitioned_by = ARRAY['nationality'],
@@ -42,8 +48,7 @@ SELECT cast(artist_id AS INTEGER) AS artist_id,
     try_cast(birth_year AS INTEGER) AS birth_year,
     try_cast(death_year AS INTEGER) AS death_year,
     CASE
-       WHEN nationality IN (NULL, '', 'Nationality unknown',
-                            'nationality unknown')
+       WHEN nationality IN (NULL, '', 'Nationality unknown', 'nationality unknown')
            THEN 'Nationality Unknown'
        ELSE nationality
     END AS nationality
@@ -63,8 +68,7 @@ SELECT cast(artist_id AS INTEGER) AS artist_id,
     try_cast(birth_year AS INTEGER) AS birth_year,
     try_cast(death_year AS INTEGER) AS death_year,
     CASE
-       WHEN nationality IN (NULL, '', 'Nationality unknown',
-                            'nationality unknown')
+       WHEN nationality IN (NULL, '', 'Nationality unknown', 'nationality unknown')
            THEN 'Nationality Unknown'
        ELSE nationality
     END AS nationality

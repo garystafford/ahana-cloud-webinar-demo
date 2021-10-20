@@ -9,6 +9,6 @@ SELECT classification,
     min(try_cast(date AS INTEGER)) AS min_date,
     max(try_cast(date AS INTEGER)) AS max_date,
     cast(avg(try_cast(date AS INTEGER)) AS INTEGER) AS avg_date
-FROM artwork_refined_glue
+FROM artworks_refined_glue
 GROUP BY classification
 ORDER BY pieces DESC

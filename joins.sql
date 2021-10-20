@@ -8,7 +8,7 @@ SELECT
     FROM
         artists_refined_glue AS artists
     INNER JOIN
-        artwork_refined_glue AS artwork
+        artworks_refined_glue AS artwork
     USING (artist_id)
     WHERE
         artists.nationality = 'American'

@@ -1,7 +1,7 @@
 -- use aws glue and amazon athena to create tables
 
 -- bronze / existing raw csv data
-CREATE EXTERNAL TABLE IF NOT EXISTS `artwork_raw_glue`(
+CREATE EXTERNAL TABLE IF NOT EXISTS `artworks_raw_glue`(
   `artwork_id` bigint,
   `title` string, 
   `artist_id` bigint,
@@ -34,18 +34,21 @@ STORED AS INPUTFORMAT
 OUTPUTFORMAT 
   'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
 LOCATION
-  's3://<your_s3_bucket_name_here>/artwork_raw'
+  's3://<your_s3_bucket_name_here>/artworks_raw'
 TBLPROPERTIES (
-  'skip.header.line.count'='1',
   'classification'='csv',
-  'compressionType'='none');
+  'compressionType'='gzip',
+  'skip.header.line.count'='1')
+
+-- preview bronze data
+SELECT * FROM "moma"."artworks_raw_glue" LIMIT 10;
 
 -- silver / create refined partitioned parquet data
-CREATE EXTERNAL TABLE IF NOT EXISTS artwork_refined_glue
+CREATE TABLE IF NOT EXISTS artworks_refined_glue
 WITH (
     format = 'PARQUET',
     partitioned_by = ARRAY ['classification'],
-    external_location = 's3://<your_s3_bucket_name_here>/artwork_refined_glue/')
+    external_location = 's3://<your_s3_bucket_name_here>/artworks_refined_glue/')
 AS
 SELECT cast(artwork_id AS INTEGER) AS artwork_id,
        cast(artist_id AS INTEGER)  AS artist_id,
@@ -68,14 +71,14 @@ SELECT cast(artwork_id AS INTEGER) AS artwork_id,
            WHEN classification IN ('Photography Research/Reference')
                THEN 'Photography Research and Reference'
            ELSE classification
-END
+       END
 AS classification
-FROM artwork_raw_glue
+FROM artworks_raw_glue
 WHERE title != '';
 
 -- analyze refined data (aws glue)
 SELECT classification, count(*) AS pieces
-FROM artwork_refined_glue
+FROM artworks_refined_glue
 GROUP BY classification
 ORDER BY pieces DESC;
 
@@ -86,7 +89,7 @@ SELECT classification,
     max(try_cast(date AS INTEGER)) AS max_date,
     year(current_date) - max(try_cast(date AS INTEGER)) AS newest_yrs,
     cast (avg(try_cast(date AS INTEGER)) AS INTEGER) AS avg_date
-FROM artwork_refined_glue
+FROM artworks_refined_glue
 GROUP BY classification
 ORDER BY pieces DESC
 LIMIT 10;
