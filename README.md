@@ -1,12 +1,10 @@
 # 0 to Presto in 30 minutes with AWS & Ahana Cloud
 
-Source SQL code for the Ahana.io
-webinar: [0 to Presto in 30 minutes with AWS & Ahana Cloud](https://ahana.io/events/webinars/0-to-presto-oct21/)
+Source SQL code for the Ahana.io webinar: [0 to Presto in 30 minutes with AWS & Ahana Cloud](https://ahana.io/events/webinars/0-to-presto-oct21/)
 
 ## Datasource
 
-The original datasource use in the
-demonstration: [Museum of Modern Art Collection](https://www.kaggle.com/momanyc/museum-collection).
+The original datasource use in the demonstration: [Museum of Modern Art Collection](https://www.kaggle.com/momanyc/museum-collection).
 
 ## SQL Statements
 
@@ -15,10 +13,11 @@ demonstration: [Museum of Modern Art Collection](https://www.kaggle.com/momanyc/
 * [`ahana_demo_hive.sql`](ahana_demo_hive.sql): Artists SQL statements using Apache Superset/Presto and Apache Hive
 * [`joins.sql`](joins.sql): Example of joins using Apache Superset/Presto
 * [`superset_charts.sql`](superset_charts.sql): SQL statements used to create Superset charts for dashboard
-   
+
 ## Data
-* `moma_public_artists.txt.gz`: GZIP-compressed, pipe-delimitedc raw artists data from Kaggle
-* `moma_public_artworks.txt.gz`: GZIP-compressed, pipe-delimited, copies of raw artworks data from Kaggle
+
+* `moma_public_artists.txt.gz`: GZIP-compressed, pipe-delimited copies of raw artists data from Kaggle
+* `moma_public_artworks.txt.gz`: GZIP-compressed, pipe-delimited copies of raw artworks data from Kaggle
 
 ## Setup
 
@@ -30,5 +29,4 @@ demonstration: [Museum of Modern Art Collection](https://www.kaggle.com/momanyc/
 
 ---
 
-<i>The contents of this repository represent my viewpoints and not of my past or current employers, including Amazon Web
-Services (AWS). All third-party libraries, modules, plugins, and SDKs are the property of their respective owners.</i>
+<i>The contents of this repository represent my viewpoints and not of my past or current employers, including Amazon Web Services (AWS). All third-party libraries, modules, plugins, and SDKs are the property of their respective owners.</i>
