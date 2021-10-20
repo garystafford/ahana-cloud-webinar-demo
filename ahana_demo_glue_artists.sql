@@ -1,6 +1,6 @@
 -- use aws glue and amazon athena to create tables
 
---bronze / existing raw csv data
+-- bronze / existing raw csv data
 CREATE EXTERNAL TABLE `artists_raw_glue`(
     `artist_id` bigint,
     `name` string,
@@ -26,7 +26,7 @@ TBLPROPERTIES (
   'skip.header.line.count'='1')
 
 -- silver / create refined partitioned parquet data
-CREATE TABLE IF NOT EXISTS artists_refined_glue
+CREATE EXTERNAL TABLE IF NOT EXISTS artists_refined_glue
 WITH (
     format = 'PARQUET',
     partitioned_by = ARRAY['nationality'],
