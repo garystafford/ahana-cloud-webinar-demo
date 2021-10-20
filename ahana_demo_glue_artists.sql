@@ -1,7 +1,7 @@
 -- use aws glue and amazon athena to create tables
 
 -- bronze / existing raw csv data
-CREATE EXTERNAL TABLE `artists_raw_glue`(
+CREATE EXTERNAL TABLE IF NOT EXISTS `artists_raw_glue`(
     `artist_id` bigint,
     `name` string,
     `nationality` string,
